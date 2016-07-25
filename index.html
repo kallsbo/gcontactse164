@@ -19,6 +19,21 @@
     </div>
     <div id="auth" ng-controller="AuthenticateController as AuthCtrl" ng-hide="data.IsAuthenticated">
       <h1>Google Contacts E164 check/fix</h1>
+      <p>Uses Google Contacts API to read out your phone book and then verify that all phone numbers are in the proper E164 format. That means that they all have + country code in the beginning so it can be dialed from any country.</p>
+      <div style="display: inline-block;text-align: left;">
+        <b>Demos key features:</b>
+        <ul>
+          <li>Use of AngularJS for front end</li>
+          <li>Use of Google Contacts API</li>
+        </ul>
+        <b>Known issues:</b>
+        <ul>
+          <li>If you use the “select all” checkbox the API calls will fail due to quota limitations.</li>
+        </ul>
+      </div>
+      <br />
+Source code available here: <a href="https://github.com/kallsbo/gcontactse164">https://github.com/kallsbo/gcontactse164</a>
+<br />
         <a ng-href="{{data.OAuthURL}}" target="_blank" class="btn btn-primary btn-lg">
             <i class="fa fa-google"></i> Login to Google Contacts
         </a>
