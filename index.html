@@ -12,12 +12,13 @@
     <script src="js/script.js"></script>
   </head>
 
-  <body>
-    <div ng-app="contacts">
+  <body ng-app="contacts">
+    <ng-include src="'../tag_line.html'"></ng-include>
+    <div class="container">
     <div id="message" ng-controller="MessageController" class="alert alert-danger" role="alert" ng-show="data.ShowMessage">
             {{data.Message}}
     </div>
-    <div id="auth" ng-controller="AuthenticateController as AuthCtrl" ng-hide="data.IsAuthenticated">
+    <div id="auth" class="well" ng-controller="AuthenticateController as AuthCtrl" ng-hide="data.IsAuthenticated">
       <h1>Google Contacts E164 check/fix</h1>
       <p>Uses Google Contacts API to read out your phone book and then verify that all phone numbers are in the proper E164 format. That means that they all have + country code in the beginning so it can be dialed from any country.</p>
       <div style="display: inline-block;text-align: left;">
@@ -33,6 +34,7 @@
       </div>
       <br />
 Source code available here: <a href="https://github.com/kallsbo/gcontactse164">https://github.com/kallsbo/gcontactse164</a>
+<br />
 <br />
         <a ng-href="{{data.OAuthURL}}" target="_blank" class="btn btn-primary btn-lg">
             <i class="fa fa-google"></i> Login to Google Contacts
