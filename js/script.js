@@ -33,7 +33,7 @@ app.service('AuthService',[function () {
         'IsAuthenticated': false,
         'IsCorrectURL': false,
         'IsSecureURL': false,
-        'OAuthCallbackURL': '#',
+        'OAuthCallbackURL': window.location.href,
         'OAuthURL': '#',
         'access_token': ''
     };
@@ -43,14 +43,6 @@ app.service('AuthService',[function () {
 			'oAuthClientID': "632515388751-cissrevhauvovoterd149s3780md7j5v.apps.googleusercontent.com",
 			'oAuthScope': "https://www.google.com/m8/feeds"
     };
-
-    this.SetOAuthCallbackURL = function() {
-        var a = document.createElement('a');
-        a.href = document.referrer;
-        this.data.OAuthCallbackURL = [a.protocol, '//', a.host, a.pathname].join('');
-				console.log(window.location.href);
-        a = '';
-    }
 
     this.SetOAuthURL = function() {
         // URL Encode parameters
@@ -85,9 +77,7 @@ app.service('AuthService',[function () {
 		}
 
     this.init = function() {
-    		  // Build secure URL for this JSFiddle
-        	this.SetOAuthCallbackURL();
-        	// Check for token
+    		  // Check for token
           if(!this.TokenRecieved())
           {
           	// Build oauth url
