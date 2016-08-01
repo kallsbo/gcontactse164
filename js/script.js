@@ -48,7 +48,7 @@ app.service('AuthService',[function () {
         var a = document.createElement('a');
         a.href = document.referrer;
         this.data.OAuthCallbackURL = [a.protocol, '//', a.host, a.pathname].join('');
-				console.log(this.data.OAuthCallbackURL);
+				console.log(window.location.href);
         a = '';
     }
 
