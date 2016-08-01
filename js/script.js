@@ -73,7 +73,7 @@ app.service('AuthService',[function () {
     }
 
     this.GetURLParameter = function(sParam) {
-	    var sPageURL = window.parent.location.hash.substring(1);
+	    var sPageURL = window.parent.location.hash.substring(1).replace(/^\/|\/$/g, '');
     	var sURLVariables = sPageURL.split('&');
     	for (var i = 0; i < sURLVariables.length; i++) {
         	var sParameterName = sURLVariables[i].split('=');
